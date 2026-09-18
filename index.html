@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prashanth Billa — Data Scientist &amp; AI Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Prashanth Billa, a Data Science and AI Engineer building machine learning, deep learning and generative AI systems."
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <div class="grain"></div>
+
+    <!-- ============ NAV ============ -->
+    <header class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#top" class="nav-mark"
+          >PB<span class="nav-mark-dot">.</span></a
+        >
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="mailto:prashanthbilla003@gmail.com"
+            >Hire me</a
+          >
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="kicker">Data Science &amp; AI Engineering</p>
+            <h1 class="hero-title">
+              I build systems that turn raw data into decisions worth trusting.
+            </h1>
+            <p class="hero-sub">
+              I'm Prashanth Billa. I design and ship machine learning, deep
+              learning and generative AI applications — from a messy CSV to a
+              model in production.
+            </p>
+            <div class="hero-cta">
+              <a href="#work" class="btn btn-primary">See the work</a>
+              <a href="#contact" class="btn btn-line">Start a project</a>
+            </div>
+
+            <dl class="hero-stats">
+              <div>
+                <dt>Oracle Apps Technical</dt>
+                <dd>Wipro</dd>
+              </div>
+              <div>
+                <dt>10+</dt>
+                <dd>projects completed</dd>
+              </div>
+              <!-- <div>
+                <dt>Freelance</dt>
+                <dd>currently available</dd>
+              </div> -->
+            </dl>
+          </div>
+
+          <div class="hero-visual">
+            <canvas id="signalCanvas" aria-hidden="true"></canvas>
+            <p class="hero-visual-caption">validation loss, live-plotted</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="section" id="about">
+        <div class="section-head">
+          <h2>Who I am</h2>
+          <p class="section-lede">
+            A data scientist and AI engineer working across the whole pipeline —
+            from exploratory analysis to models people actually use.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-photo">
+            <img
+              src="assets/Prashanth-Logo-2.png"
+              alt="Portrait of Prashanth Billa"
+              loading="lazy"
+            />
+          </div>
+          <div class="about-text">
+            <p>
+              I'm a Data Science and Artificial Intelligence engineer with
+              hands-on experience building data-driven and AI-powered
+              applications. My focus is turning raw, messy data into insight —
+              and insight into systems that actually run.
+            </p>
+
+            <div class="about-block">
+              <h3>Data science</h3>
+              <p>
+                Data cleaning, exploratory analysis, feature engineering and
+                model evaluation on real-world, structured datasets.
+              </p>
+            </div>
+            <div class="about-block">
+              <h3>Machine learning &amp; deep learning</h3>
+              <p>
+                Regression, classification and clustering, plus neural networks
+                built in TensorFlow, evaluated on accuracy, precision, recall,
+                F1 and ROC-AUC.
+              </p>
+            </div>
+            <div class="about-block">
+              <h3>Generative AI</h3>
+              <p>
+                LLMs, TF-IDF and Ada embeddings, and LangChain — used to build
+                things like AI authorship detection and agent-based reasoning
+                workflows.
+              </p>
+            </div>
+            <div class="about-block">
+              <h3>Deployment</h3>
+              <p>
+                Shipping models for real-time inference with Flask and
+                Streamlit, using Python, Pandas, NumPy, SQL, Scikit-learn, Git
+                and Postman day to day.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SKILLS ============ -->
+      <section class="section section-muted" id="skills">
+        <div class="section-head">
+          <h2>What I work with</h2>
+          <p class="section-lede">
+            The tools I build with, and the technologies I build for.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-panel">
+            <div class="skill-panel-head">
+              <h3>Tools</h3>
+              <p>Development, tracking and deployment</p>
+            </div>
+            <ul class="chip-list">
+              <li>Jupyter Notebook</li>
+              <li>Anaconda</li>
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>FastAPI</li>
+              <li>REST APIs</li>
+              <li>Docker (basics)</li>
+              <li>Microsoft Azure</li>
+              <li>MySQL</li>
+              <li>Oracle EBS</li>
+              <li>GitHub Copilot</li>
+              <li>Dialogflow</li>
+            </ul>
+          </div>
+
+          <div class="skill-panel">
+            <div class="skill-panel-head">
+              <h3>Technologies</h3>
+              <p>Machine learning, NLP and GenAI</p>
+            </div>
+            <ul class="chip-list">
+              <li>Python</li>
+              <li>R</li>
+              <li>Machine learning</li>
+              <li>Deep learning</li>
+              <li>Model evaluation</li>
+              <li>NLP</li>
+              <li>Text embeddings</li>
+              <li>Semantic search</li>
+              <li>RAG</li>
+              <li>LLMs</li>
+              <li>NumPy</li>
+              <li>Pandas</li>
+              <li>Scikit-learn</li>
+              <li>TensorFlow</li>
+              <li>PyTorch</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ WORK ============ -->
+      <section class="section" id="work">
+        <div class="section-head">
+          <h2>Selected work</h2>
+          <p class="section-lede">
+            Filter by kind, or scroll through everything.
+          </p>
+        </div>
+
+        <div class="filter-bar" role="tablist" aria-label="Filter projects">
+          <button
+            class="filter-btn is-active"
+            data-filter="all"
+            role="tab"
+            aria-selected="true"
+          >
+            All
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="ds"
+            role="tab"
+            aria-selected="false"
+          >
+            Data science
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="sql"
+            role="tab"
+            aria-selected="false"
+          >
+            SQL
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="web"
+            role="tab"
+            aria-selected="false"
+          >
+            Web development
+          </button>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+          <article class="project-card" data-cat="ds">
+            <a href="Sections/gen_ds.html" class="project-media">
+              <img
+                src="assets/GenAI_code_AI.png"
+                alt="AI code authorship detection project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-ds">Data science</span>
+              <h3>
+                <a href="Sections/gen_ds.html">AI code authorship detection</a>
+              </h3>
+              <p class="project-stack">Python · Scikit-learn</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="ds">
+            <a href="Sections/imgResol_ds.html" class="project-media">
+              <img
+                src="assets/reolution_img_ds.png"
+                alt="Image super resolution using GAN project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-ds">Data science</span>
+              <h3>
+                <a href="Sections/imgResol_ds.html"
+                  >Image super-resolution using GAN</a
+                >
+              </h3>
+              <p class="project-stack">Python · Deep learning</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="ds">
+            <a href="Sections/stockPrice.html" class="project-media">
+              <img
+                src="assets/Stock_mainimg.png"
+                alt="Stock price prediction project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-ds">Data science</span>
+              <h3>
+                <a href="Sections/stockPrice.html">Stock price prediction</a>
+              </h3>
+              <p class="project-stack">Python · Scikit-learn</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="sql">
+            <a href="Sections/Retail_SQL.html" class="project-media">
+              <img
+                src="assets/Retail_Sale.jpg"
+                alt="Retail sales SQL project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-sql">SQL</span>
+              <h3>
+                <a href="Sections/Retail_SQL.html">Retail sales analysis</a>
+              </h3>
+              <p class="project-stack">SQL</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="sql">
+            <a href="Sections/Library-SQL.html" class="project-media">
+              <img
+                src="assets/library-img.jpg"
+                alt="Library management system project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-sql">SQL</span>
+              <h3>
+                <a href="Sections/Library-SQL.html"
+                  >Library management system</a
+                >
+              </h3>
+              <p class="project-stack">SQL</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="web">
+            <a
+              href="https://event-marraige-website.vercel.app/"
+              class="project-media"
+              target="_blank"
+            >
+              <img
+                src="assets/Event-app.png"
+                alt="Event Hub website project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-web">Web</span>
+              <h3>
+                <a
+                  href="https://event-marraige-website.vercel.app/"
+                  target="_blank"
+                  >The Event Hub website</a
+                >
+              </h3>
+              <p class="project-stack">React</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="web">
+            <a
+              href="https://scikit-bootstrap.vercel.app/"
+              class="project-media"
+              target="_blank"
+            >
+              <img
+                src="assets/Scikit-Project1.png"
+                alt="Bootstrap component library project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-web">Web</span>
+              <h3>
+                <a href="https://scikit-bootstrap.vercel.app/" target="_blank"
+                  >Bootstrap component library</a
+                >
+              </h3>
+              <p class="project-stack">Bootstrap 5.3 · SCSS</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="web">
+            <a
+              href="https://social-media-bice-mu.vercel.app/"
+              class="project-media"
+              target="_blank"
+            >
+              <img
+                src="assets/SocialMedia.png"
+                alt="Social media application project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-web">Web</span>
+              <h3>
+                <a
+                  href="https://social-media-bice-mu.vercel.app/"
+                  target="_blank"
+                  >Social media application</a
+                >
+              </h3>
+              <p class="project-stack">React</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="web">
+            <a
+              href="https://food-dashboard1.vercel.app/"
+              class="project-media"
+              target="_blank"
+            >
+              <img
+                src="assets/Food-delivery-dashboard.png"
+                alt="Food delivery dashboard project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-web">Web</span>
+              <h3>
+                <a href="https://food-dashboard1.vercel.app/" target="_blank">
+                  Food delivery dashboard
+                </a>
+              </h3>
+              <p class="project-stack">HTML · CSS · JavaScript</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="web">
+            <a
+              href="https://movie-application-jade.vercel.app/"
+              class="project-media"
+              target="_blank"
+            >
+              <img
+                src="assets/Movie-info-Project1.png"
+                alt="Movie information application project"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-body">
+              <span class="project-tag tag-web">Web</span>
+              <h3>
+                <a
+                  href="https://movie-application-jade.vercel.app/"
+                  target="_blank"
+                >
+                  Movie information app
+                </a>
+              </h3>
+              <p class="project-stack">HTML · CSS · JavaScript</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ FREELANCE ============ -->
+      <section class="section section-muted" id="freelance">
+        <div class="section-head">
+          <h2>Freelance work</h2>
+          <p class="section-lede">A couple of client builds, in motion.</p>
+        </div>
+        <div class="video-grid">
+          <div class="video-card">
+            <video
+              controls
+              preload="metadata"
+              src="assets/Free-lance-1.mp4"
+            ></video>
+          </div>
+          <div class="video-card">
+            <video controls preload="metadata" src="assets/chatbot.mp4"></video>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="section contact" id="contact">
+        <div class="contact-inner">
+          <h2>Let's build something.</h2>
+          <p class="section-lede">
+            Open to freelance work and full-time roles in data science and
+            applied AI. The fastest way to reach me is email.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:prashanthbilla003@gmail.com" class="btn btn-primary"
+              >prashanthbilla003@gmail.com</a
+            >
+            <a
+              href="https://www.linkedin.com/in/prashanth-billa-566020348/"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-line"
+              >LinkedIn</a
+            >
+            <a
+              href="https://github.com/billaprashanth"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-line"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        &copy; <span id="year"></span> Prashanth Billa. Built with HTML, CSS and
+        JavaScript.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

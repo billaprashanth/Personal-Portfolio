@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>AI Code Authorship Verification System — Prashanth Billa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0b0e14;
+        --bg-alt: #10141c;
+        --surface: #131822;
+
+        --border: rgba(232, 234, 237, 0.1);
+        --border-strong: rgba(232, 234, 237, 0.18);
+
+        --text: #e8eaed;
+        --text-muted: #8b93a1;
+        --text-faint: #5c6472;
+
+        --accent: #4fd1c5;
+        --accent-ink: #0a1613;
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+
+        --font-display: "Space Grotesk", "Inter", sans-serif;
+        --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        line-height: 1.65;
+        padding: 96px 20px 64px;
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      a:focus-visible,
+      .btn-link:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+
+      /* ---------- Top Bar ---------- */
+
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+
+        background: rgba(11, 14, 20, 0.82);
+        border-bottom: 1px solid var(--border);
+
+        backdrop-filter: saturate(140%) blur(10px);
+
+        padding: 18px 24px;
+      }
+
+      .topbar-inner {
+        max-width: 900px;
+        margin: 0 auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        font-size: 0.92rem;
+        color: var(--text-muted);
+
+        text-decoration: none;
+
+        transition: color 0.2s ease;
+      }
+
+      .back-link:hover {
+        color: var(--text);
+      }
+
+      .topbar-mark {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .topbar-mark span {
+        color: var(--accent);
+      }
+
+      /* ---------- Main Container ---------- */
+
+      .container {
+        background: var(--surface);
+
+        max-width: 900px;
+        width: 100%;
+
+        margin: 0 auto;
+        padding: 44px;
+
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+
+        color: var(--accent);
+        background: rgba(79, 209, 197, 0.12);
+
+        display: inline-block;
+
+        padding: 5px 11px;
+        border-radius: 999px;
+
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-family: var(--font-display);
+        font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+        font-weight: 600;
+
+        letter-spacing: -0.01em;
+
+        margin: 0 0 26px;
+
+        color: var(--text);
+      }
+
+      /* ---------- Project Image ---------- */
+
+      .project-image {
+        width: 100%;
+        max-height: 400px;
+
+        object-fit: contain;
+
+        background: var(--bg-alt);
+
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+
+        margin-bottom: 32px;
+
+        display: block;
+      }
+
+      /* ---------- Sections ---------- */
+
+      .section {
+        margin-bottom: 34px;
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section h2 {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 600;
+
+        margin: 0 0 14px;
+
+        padding-left: 14px;
+
+        border-left: 3px solid var(--accent);
+
+        color: var(--text);
+      }
+
+      .section p {
+        font-size: 1rem;
+        color: var(--text-muted);
+
+        max-width: 68ch;
+      }
+
+      .section ul {
+        margin: 0;
+        padding-left: 20px;
+
+        color: var(--text-muted);
+      }
+
+      .section ul li {
+        margin-bottom: 6px;
+      }
+
+      .section ul li::marker {
+        color: var(--accent);
+      }
+
+      /* ---------- GitHub Button ---------- */
+
+      .btn-link {
+        display: inline-block;
+
+        background-color: var(--accent);
+        color: var(--accent-ink);
+
+        padding: 13px 26px;
+
+        text-decoration: none;
+
+        border-radius: var(--radius-sm);
+
+        font-weight: 600;
+        font-size: 0.95rem;
+
+        transition:
+          background-color 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .btn-link:hover {
+        background-color: #7ee0d6;
+        transform: translateY(-1px);
+      }
+
+      /* ---------- Results ---------- */
+
+      .results-grid {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+        gap: 16px;
+      }
+
+      .results-grid img {
+        width: 100%;
+        height: 170px;
+
+        object-fit: cover;
+
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease;
+
+        cursor: pointer;
+      }
+
+      .results-grid img:hover {
+        transform: scale(1.03);
+        border-color: var(--border-strong);
+      }
+
+      /* ---------- Responsive ---------- */
+
+      @media (max-width: 640px) {
+        body {
+          padding: 88px 14px 48px;
+        }
+
+        .container {
+          padding: 26px 22px;
+          border-radius: var(--radius-sm);
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        .project-image {
+          max-height: 260px;
+        }
+
+        .results-grid img {
+          height: 150px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .topbar-mark {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ---------- Top Bar ---------- -->
+
+    <div class="topbar">
+      <div class="topbar-inner">
+        <a href="../index.html#work" class="back-link">
+          <i class="bx bx-left-arrow-alt"></i>
+          Back to portfolio
+        </a>
+
+        <span class="topbar-mark"> PB<span>.</span> </span>
+      </div>
+    </div>
+
+    <!-- ---------- Main Project Container ---------- -->
+
+    <div class="container">
+      <span class="eyebrow">Generative AI</span>
+
+      <h1>AI Code Authorship Verification System</h1>
+
+      <img
+        src="../assets/GenAI_code_Human.png"
+        class="project-image"
+        alt="AI Code Authorship Verification Cover"
+      />
+
+      <!-- ---------- Project Details ---------- -->
+
+      <div class="section">
+        <h2>Project Details</h2>
+
+        <p>
+          This project uses Machine Learning and Deep Learning techniques to
+          classify whether a piece of code is generated by AI or written by a
+          human. Models like DNN, RNN, GMM, and CodeBERT are used along with
+          embeddings like TF-IDF and Word2Vec.
+        </p>
+      </div>
+
+      <!-- ---------- Features ---------- -->
+
+      <div class="section">
+        <h2>Features</h2>
+
+        <ul>
+          <li>Handles both Python and JavaScript code inputs</li>
+          <li>Multiple embeddings and classifiers supported</li>
+          <li>TF-IDF, Word2Vec, Ada embeddings</li>
+          <li>CodeBERT and GPT fine-tuned models</li>
+          <li>Accuracy and loss evaluation metrics</li>
+        </ul>
+      </div>
+
+      <!-- ---------- Results ---------- -->
+
+      <div class="section">
+        <h2>Results</h2>
+
+        <div class="results-grid">
+          <img
+            src="../assets/GenAI_code_Human.png"
+            alt="Human Code Classification Result"
+          />
+
+          <img
+            src="../assets/GenAI_code_AI.png"
+            alt="AI Generated Code Classification Result"
+          />
+        </div>
+      </div>
+
+      <!-- ---------- GitHub Repository ---------- -->
+
+      <div class="section">
+        <h2>GitHub Repository</h2>
+
+        <a
+          href="https://github.com/billaprashanth/GenAI-Code-Authorship-Project"
+          target="_blank"
+          rel="noopener"
+          class="btn-link"
+        >
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- ---------- GSAP Animation ---------- -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.from(".container", {
+          duration: 1.1,
+          y: 40,
+          opacity: 0,
+          ease: "power3.out",
+        });
+      }
+    </script>
+  </body>
+</html>
