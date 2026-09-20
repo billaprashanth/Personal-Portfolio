@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prashanth Billa — Data Scientist &amp; AI Engineer</title>
+    <meta name="theme-color" content="#080b12" />
     <meta
       name="description"
       content="Portfolio of Prashanth Billa, a Data Science and AI Engineer building machine learning, deep learning and generative AI systems."
     />
+    <title>Prashanth Billa — AI Engineer</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,20 +20,24 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="data:," />
   </head>
-  <body>
-    <div class="grain"></div>
 
-    <!-- ============ NAV ============ -->
+  <body>
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- NAV -->
     <header class="nav" id="nav">
       <div class="nav-inner">
-        <a href="#top" class="nav-mark"
-          >PB<span class="nav-mark-dot">.</span></a
+        <a href="#top" class="nav-mark" aria-label="Prashanth Billa home"
+          >PB<span>.</span></a
         >
 
-        <nav class="nav-links" id="navLinks">
+        <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#work">Work</a>
+          <a href="#freelance">Freelance</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -46,6 +50,7 @@
             id="navToggle"
             aria-label="Toggle menu"
             aria-expanded="false"
+            aria-controls="navLinks"
           >
             <span></span><span></span><span></span>
           </button>
@@ -54,67 +59,136 @@
     </header>
 
     <main id="top">
-      <!-- ============ HERO ============ -->
+      <!-- HERO -->
       <section class="hero">
+        <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+
         <div class="hero-inner">
-          <div class="hero-copy">
-            <p class="kicker">Data Science &amp; AI Engineering</p>
+          <div class="hero-copy reveal reveal-left">
+            <div class="availability">
+              <span class="availability-dot"></span>
+              Open to AI Engineering opportunities
+            </div>
+
+            <p class="kicker">DATA SCIENCE · AI ENGINEERING · GENERATIVE AI</p>
+
             <h1 class="hero-title">
-              I build systems that turn raw data into decisions worth trusting.
+              I build <span>AI systems</span> that turn complex data into useful
+              products.
             </h1>
+
             <p class="hero-sub">
-              I'm Prashanth Billa. I design and ship machine learning, deep
-              learning and generative AI applications — from a messy CSV to a
-              model in production.
+              I'm Prashanth Billa — an AI Engineer focused on machine learning,
+              deep learning, generative AI and production-oriented applications.
             </p>
+
             <div class="hero-cta">
-              <a href="#work" class="btn btn-primary">See the work</a>
-              <a href="#contact" class="btn btn-line">Start a project</a>
+              <a href="#work" class="btn btn-primary magnetic"
+                >Explore my work <span>↗</span></a
+              >
+              <a href="#contact" class="btn btn-line magnetic">Let's connect</a>
             </div>
 
             <dl class="hero-stats">
-              <div>
-                <dt>Oracle Apps Technical</dt>
-                <dd>Wipro</dd>
+              <div class="stat-item">
+                <dt>AI / ML</dt>
+                <dd>Engineering focus</dd>
               </div>
-              <div>
+              <div class="stat-item">
                 <dt>10+</dt>
-                <dd>projects completed</dd>
+                <dd>Projects completed</dd>
               </div>
-              <!-- <div>
-                <dt>Freelance</dt>
-                <dd>currently available</dd>
-              </div> -->
+              <div class="stat-item">
+                <dt>Wipro</dt>
+                <dd>Oracle Apps Technical</dd>
+              </div>
             </dl>
           </div>
 
-          <div class="hero-visual">
-            <canvas id="signalCanvas" aria-hidden="true"></canvas>
-            <p class="hero-visual-caption">validation loss, live-plotted</p>
+          <div class="hero-visual reveal reveal-right">
+            <div class="terminal-top">
+              <div class="terminal-dots"><i></i><i></i><i></i></div>
+              <span>ai_pipeline.py</span>
+              <span class="terminal-status">● RUNNING</span>
+            </div>
+
+            <div class="code-window">
+              <div class="code-line">
+                <span class="ln">01</span
+                ><span><b>model</b> = <em>AIEngineer</em>()</span>
+              </div>
+              <div class="code-line">
+                <span class="ln">02</span
+                ><span>model.<b>ingest</b>(<em>"enterprise_data"</em>)</span>
+              </div>
+              <div class="code-line">
+                <span class="ln">03</span
+                ><span>model.<b>embed</b>(<em>documents</em>)</span>
+              </div>
+              <div class="code-line">
+                <span class="ln">04</span
+                ><span>model.<b>retrieve</b>(<em>query</em>)</span>
+              </div>
+              <div class="code-line">
+                <span class="ln">05</span
+                ><span>model.<b>generate</b>(<em>context</em>)</span>
+              </div>
+              <div class="code-line">
+                <span class="ln">06</span
+                ><span>model.<b>deploy</b>(<em>"production"</em>)</span>
+              </div>
+            </div>
+
+            <div class="signal-panel">
+              <div class="signal-label">
+                <span>MODEL PERFORMANCE</span>
+                <span class="signal-live">LIVE</span>
+              </div>
+              <canvas id="signalCanvas" aria-hidden="true"></canvas>
+              <div class="signal-axis">
+                <span>training</span><span>validation</span
+                ><span>production</span>
+              </div>
+            </div>
           </div>
         </div>
+
+        <a href="#about" class="scroll-cue" aria-label="Scroll to About">
+          <span>SCROLL TO EXPLORE</span>
+          <i></i>
+        </a>
       </section>
 
-      <!-- ============ ABOUT ============ -->
+      <!-- ABOUT -->
       <section class="section" id="about">
-        <div class="section-head">
+        <div class="section-head reveal">
+          <span class="section-number">01 / ABOUT</span>
           <h2>Who I am</h2>
           <p class="section-lede">
-            A data scientist and AI engineer working across the whole pipeline —
-            from exploratory analysis to models people actually use.
+            A data scientist and AI engineer working across the pipeline — from
+            raw data to systems people can actually use.
           </p>
         </div>
 
         <div class="about-grid">
-          <div class="about-photo">
-            <img
-              src="assets/Prashanth-Logo-2.png"
-              alt="Portrait of Prashanth Billa"
-              loading="lazy"
-            />
+          <div class="about-photo reveal reveal-left">
+            <div class="photo-frame">
+              <img
+                src="assets/Prashanth-Logo-2.png"
+                alt="Portrait of Prashanth Billa"
+                loading="lazy"
+              />
+              <span class="photo-corner photo-corner-tl"></span>
+              <span class="photo-corner photo-corner-br"></span>
+            </div>
+            <div class="photo-caption">
+              PRASHANTH BILLA<br /><span>AI ENGINEER</span>
+            </div>
           </div>
-          <div class="about-text">
-            <p>
+
+          <div class="about-text reveal reveal-right">
+            <p class="about-intro">
               I'm a Data Science and Artificial Intelligence engineer with
               hands-on experience building data-driven and AI-powered
               applications. My focus is turning raw, messy data into insight —
@@ -122,54 +196,73 @@
             </p>
 
             <div class="about-block">
-              <h3>Data science</h3>
-              <p>
-                Data cleaning, exploratory analysis, feature engineering and
-                model evaluation on real-world, structured datasets.
-              </p>
+              <span class="block-index">01</span>
+              <div>
+                <h3>Data science</h3>
+                <p>
+                  Data cleaning, exploratory analysis, feature engineering and
+                  model evaluation on real-world, structured datasets.
+                </p>
+              </div>
             </div>
+
             <div class="about-block">
-              <h3>Machine learning &amp; deep learning</h3>
-              <p>
-                Regression, classification and clustering, plus neural networks
-                built in TensorFlow, evaluated on accuracy, precision, recall,
-                F1 and ROC-AUC.
-              </p>
+              <span class="block-index">02</span>
+              <div>
+                <h3>Machine learning &amp; deep learning</h3>
+                <p>
+                  Regression, classification and clustering, plus neural
+                  networks built in TensorFlow, evaluated on accuracy,
+                  precision, recall, F1 and ROC-AUC.
+                </p>
+              </div>
             </div>
+
             <div class="about-block">
-              <h3>Generative AI</h3>
-              <p>
-                LLMs, TF-IDF and Ada embeddings, and LangChain — used to build
-                things like AI authorship detection and agent-based reasoning
-                workflows.
-              </p>
+              <span class="block-index">03</span>
+              <div>
+                <h3>Generative AI</h3>
+                <p>
+                  LLMs, embeddings, LangChain and retrieval workflows used to
+                  build AI authorship detection and agent-based reasoning
+                  applications.
+                </p>
+              </div>
             </div>
+
             <div class="about-block">
-              <h3>Deployment</h3>
-              <p>
-                Shipping models for real-time inference with Flask and
-                Streamlit, using Python, Pandas, NumPy, SQL, Scikit-learn, Git
-                and Postman day to day.
-              </p>
+              <span class="block-index">04</span>
+              <div>
+                <h3>Deployment</h3>
+                <p>
+                  Shipping models and applications with Python, Flask,
+                  Streamlit, FastAPI, SQL, Git and modern development workflows.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ============ SKILLS ============ -->
+      <!-- SKILLS -->
       <section class="section section-muted" id="skills">
-        <div class="section-head">
+        <div class="section-head reveal">
+          <span class="section-number">02 / STACK</span>
           <h2>What I work with</h2>
           <p class="section-lede">
-            The tools I build with, and the technologies I build for.
+            A practical toolkit spanning AI engineering, machine learning, data
+            and application development.
           </p>
         </div>
 
         <div class="skills-grid">
-          <div class="skill-panel">
+          <div class="skill-panel reveal reveal-left">
             <div class="skill-panel-head">
-              <h3>Tools</h3>
-              <p>Development, tracking and deployment</p>
+              <div class="skill-icon">01</div>
+              <div>
+                <h3>Tools &amp; Platforms</h3>
+                <p>Development, tracking &amp; deployment</p>
+              </div>
             </div>
             <ul class="chip-list">
               <li>Jupyter Notebook</li>
@@ -178,7 +271,7 @@
               <li>GitHub</li>
               <li>FastAPI</li>
               <li>REST APIs</li>
-              <li>Docker (basics)</li>
+              <li>Docker</li>
               <li>Microsoft Azure</li>
               <li>MySQL</li>
               <li>Oracle EBS</li>
@@ -187,20 +280,23 @@
             </ul>
           </div>
 
-          <div class="skill-panel">
+          <div class="skill-panel reveal reveal-right">
             <div class="skill-panel-head">
-              <h3>Technologies</h3>
-              <p>Machine learning, NLP and GenAI</p>
+              <div class="skill-icon">02</div>
+              <div>
+                <h3>AI &amp; Technologies</h3>
+                <p>Machine learning, NLP &amp; GenAI</p>
+              </div>
             </div>
             <ul class="chip-list">
               <li>Python</li>
               <li>R</li>
-              <li>Machine learning</li>
-              <li>Deep learning</li>
-              <li>Model evaluation</li>
+              <li>Machine Learning</li>
+              <li>Deep Learning</li>
+              <li>Model Evaluation</li>
               <li>NLP</li>
-              <li>Text embeddings</li>
-              <li>Semantic search</li>
+              <li>Embeddings</li>
+              <li>Semantic Search</li>
               <li>RAG</li>
               <li>LLMs</li>
               <li>NumPy</li>
@@ -213,23 +309,29 @@
         </div>
       </section>
 
-      <!-- ============ WORK ============ -->
+      <!-- WORK -->
       <section class="section" id="work">
-        <div class="section-head">
-          <h2>Selected work</h2>
+        <div class="section-head reveal">
+          <span class="section-number">03 / SELECTED WORK</span>
+          <h2>Projects that show how I build.</h2>
           <p class="section-lede">
-            Filter by kind, or scroll through everything.
+            Explore AI, data, SQL and web projects. Each card opens the project
+            detail or live application.
           </p>
         </div>
 
-        <div class="filter-bar" role="tablist" aria-label="Filter projects">
+        <div
+          class="filter-bar reveal"
+          role="tablist"
+          aria-label="Filter projects"
+        >
           <button
             class="filter-btn is-active"
             data-filter="all"
             role="tab"
             aria-selected="true"
           >
-            All
+            All <span>10</span>
           </button>
           <button
             class="filter-btn"
@@ -237,7 +339,7 @@
             role="tab"
             aria-selected="false"
           >
-            Data science
+            Data Science
           </button>
           <button
             class="filter-btn"
@@ -253,57 +355,60 @@
             role="tab"
             aria-selected="false"
           >
-            Web development
+            Web
           </button>
         </div>
 
         <div class="project-grid" id="projectGrid">
-          <article class="project-card" data-cat="ds">
+          <article class="project-card reveal" data-cat="ds">
             <a href="Sections/gen_ds.html" class="project-media">
               <img
                 src="assets/GenAI_code_AI.png"
                 alt="AI code authorship detection project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
-              <span class="project-tag tag-ds">Data science</span>
+              <span class="project-tag tag-ds">Generative AI</span>
               <h3>
                 <a href="Sections/gen_ds.html">AI code authorship detection</a>
               </h3>
-              <p class="project-stack">Python · Scikit-learn</p>
+              <p class="project-stack">Python · ML · NLP · CodeBERT</p>
             </div>
           </article>
 
-          <article class="project-card" data-cat="ds">
+          <article class="project-card reveal" data-cat="ds">
             <a href="Sections/imgResol_ds.html" class="project-media">
               <img
                 src="assets/reolution_img_ds.png"
                 alt="Image super resolution using GAN project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
-              <span class="project-tag tag-ds">Data science</span>
+              <span class="project-tag tag-ds">Deep Learning</span>
               <h3>
                 <a href="Sections/imgResol_ds.html"
                   >Image super-resolution using GAN</a
                 >
               </h3>
-              <p class="project-stack">Python · Deep learning</p>
+              <p class="project-stack">Python · GAN · Deep Learning</p>
             </div>
           </article>
 
-          <article class="project-card" data-cat="ds">
+          <article class="project-card reveal" data-cat="ds">
             <a href="Sections/stockPrice.html" class="project-media">
               <img
                 src="assets/Stock_mainimg.png"
                 alt="Stock price prediction project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
-              <span class="project-tag tag-ds">Data science</span>
+              <span class="project-tag tag-ds">Data Science</span>
               <h3>
                 <a href="Sections/stockPrice.html">Stock price prediction</a>
               </h3>
@@ -311,30 +416,32 @@
             </div>
           </article>
 
-          <article class="project-card" data-cat="sql">
+          <article class="project-card reveal" data-cat="sql">
             <a href="Sections/Retail_SQL.html" class="project-media">
               <img
                 src="assets/Retail_Sale.jpg"
                 alt="Retail sales SQL project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
               <span class="project-tag tag-sql">SQL</span>
               <h3>
                 <a href="Sections/Retail_SQL.html">Retail sales analysis</a>
               </h3>
-              <p class="project-stack">SQL</p>
+              <p class="project-stack">SQL · Data Analysis</p>
             </div>
           </article>
 
-          <article class="project-card" data-cat="sql">
+          <article class="project-card reveal" data-cat="sql">
             <a href="Sections/Library-SQL.html" class="project-media">
               <img
                 src="assets/library-img.jpg"
                 alt="Library management system project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
               <span class="project-tag tag-sql">SQL</span>
@@ -343,21 +450,23 @@
                   >Library management system</a
                 >
               </h3>
-              <p class="project-stack">SQL</p>
+              <p class="project-stack">SQL · Database Design</p>
             </div>
           </article>
 
-          <article class="project-card" data-cat="web">
+          <article class="project-card reveal" data-cat="web">
             <a
               href="https://event-marraige-website.vercel.app/"
               class="project-media"
               target="_blank"
+              rel="noopener"
             >
               <img
                 src="assets/Event-app.png"
                 alt="Event Hub website project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
               <span class="project-tag tag-web">Web</span>
@@ -365,29 +474,35 @@
                 <a
                   href="https://event-marraige-website.vercel.app/"
                   target="_blank"
+                  rel="noopener"
                   >The Event Hub website</a
                 >
               </h3>
-              <p class="project-stack">React</p>
+              <p class="project-stack">React · UI Development</p>
             </div>
           </article>
 
-          <article class="project-card" data-cat="web">
+          <article class="project-card reveal" data-cat="web">
             <a
               href="https://scikit-bootstrap.vercel.app/"
               class="project-media"
               target="_blank"
+              rel="noopener"
             >
               <img
                 src="assets/Scikit-Project1.png"
                 alt="Bootstrap component library project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
               <span class="project-tag tag-web">Web</span>
               <h3>
-                <a href="https://scikit-bootstrap.vercel.app/" target="_blank"
+                <a
+                  href="https://scikit-bootstrap.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
                   >Bootstrap component library</a
                 >
               </h3>
@@ -395,17 +510,19 @@
             </div>
           </article>
 
-          <article class="project-card" data-cat="web">
+          <article class="project-card reveal" data-cat="web">
             <a
               href="https://social-media-bice-mu.vercel.app/"
               class="project-media"
               target="_blank"
+              rel="noopener"
             >
               <img
                 src="assets/SocialMedia.png"
                 alt="Social media application project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
               <span class="project-tag tag-web">Web</span>
@@ -413,47 +530,55 @@
                 <a
                   href="https://social-media-bice-mu.vercel.app/"
                   target="_blank"
+                  rel="noopener"
                   >Social media application</a
                 >
               </h3>
-              <p class="project-stack">React</p>
+              <p class="project-stack">React · Application UI</p>
             </div>
           </article>
 
-          <article class="project-card" data-cat="web">
+          <article class="project-card reveal" data-cat="web">
             <a
               href="https://food-dashboard1.vercel.app/"
               class="project-media"
               target="_blank"
+              rel="noopener"
             >
               <img
                 src="assets/Food-delivery-dashboard.png"
                 alt="Food delivery dashboard project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
               <span class="project-tag tag-web">Web</span>
               <h3>
-                <a href="https://food-dashboard1.vercel.app/" target="_blank">
-                  Food delivery dashboard
-                </a>
+                <a
+                  href="https://food-dashboard1.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
+                  >Food delivery dashboard</a
+                >
               </h3>
               <p class="project-stack">HTML · CSS · JavaScript</p>
             </div>
           </article>
 
-          <article class="project-card" data-cat="web">
+          <article class="project-card reveal" data-cat="web">
             <a
               href="https://movie-application-jade.vercel.app/"
               class="project-media"
               target="_blank"
+              rel="noopener"
             >
               <img
                 src="assets/Movie-info-Project1.png"
                 alt="Movie information application project"
                 loading="lazy"
               />
+              <span class="project-arrow">↗</span>
             </a>
             <div class="project-body">
               <span class="project-tag tag-web">Web</span>
@@ -461,9 +586,9 @@
                 <a
                   href="https://movie-application-jade.vercel.app/"
                   target="_blank"
+                  rel="noopener"
+                  >Movie information app</a
                 >
-                  Movie information app
-                </a>
               </h3>
               <p class="project-stack">HTML · CSS · JavaScript</p>
             </div>
@@ -471,52 +596,67 @@
         </div>
       </section>
 
-      <!-- ============ FREELANCE ============ -->
+      <!-- FREELANCE -->
       <section class="section section-muted" id="freelance">
-        <div class="section-head">
-          <h2>Freelance work</h2>
-          <p class="section-lede">A couple of client builds, in motion.</p>
+        <div class="section-head reveal">
+          <span class="section-number">04 / FREELANCE</span>
+          <h2>Client work, in motion.</h2>
+          <p class="section-lede">
+            A couple of client builds demonstrating practical application
+            development and AI integration.
+          </p>
         </div>
+
         <div class="video-grid">
-          <div class="video-card">
+          <div class="video-card reveal reveal-left">
             <video
               controls
               preload="metadata"
               src="assets/Free-lance-1.mp4"
             ></video>
+            <div class="video-caption">
+              <span>CLIENT BUILD</span><b>Application showcase</b>
+            </div>
           </div>
-          <div class="video-card">
+          <div class="video-card reveal reveal-right">
             <video controls preload="metadata" src="assets/chatbot.mp4"></video>
+            <div class="video-caption">
+              <span>AI APPLICATION</span><b>Chatbot showcase</b>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ============ CONTACT ============ -->
+      <!-- CONTACT -->
       <section class="section contact" id="contact">
-        <div class="contact-inner">
-          <h2>Let's build something.</h2>
+        <div class="contact-glow" aria-hidden="true"></div>
+        <div class="contact-inner reveal">
+          <span class="section-number">05 / CONTACT</span>
+          <h2>Let's build something <span>useful.</span></h2>
           <p class="section-lede">
-            Open to freelance work and full-time roles in data science and
-            applied AI. The fastest way to reach me is email.
+            Open to full-time AI Engineering opportunities, data science roles
+            and selected freelance work. The fastest way to reach me is email.
           </p>
 
           <div class="contact-links">
-            <a href="mailto:prashanthbilla003@gmail.com" class="btn btn-primary"
-              >prashanthbilla003@gmail.com</a
+            <a
+              href="mailto:prashanthbilla003@gmail.com"
+              class="btn btn-primary magnetic"
+              >prashanthbilla003@gmail.com <span>↗</span></a
             >
             <a
               href="https://www.linkedin.com/in/prashanth-billa-566020348/"
               target="_blank"
               rel="noopener"
-              class="btn btn-line"
-              >LinkedIn</a
+              class="btn btn-line magnetic"
+              >LinkedIn ↗</a
             >
             <a
               href="https://github.com/billaprashanth"
               target="_blank"
               rel="noopener"
-              class="btn btn-line"
-              >GitHub</a
+              class="btn btn-line magnetic"
+              >GitHub ↗</a
             >
           </div>
         </div>
@@ -525,9 +665,10 @@
 
     <footer class="footer">
       <p>
-        &copy; <span id="year"></span> Prashanth Billa. Built with HTML, CSS and
+        © <span id="year"></span> Prashanth Billa · Built with HTML, CSS &amp;
         JavaScript.
       </p>
+      <a href="#top" class="footer-top">Back to top ↑</a>
     </footer>
 
     <script src="script.js"></script>
