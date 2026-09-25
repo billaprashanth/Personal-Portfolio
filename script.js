@@ -1,7 +1,10 @@
-/* ===========================================================
-   PRASHANTH BILLA — PORTFOLIO INTERACTIONS
-   Smooth / Animated / Recruiter-focused
-   =========================================================== */
+/* ===========================================================*
+
+*   PRASHANTH BILLA — PORTFOLIO INTERACTIONS*
+
+*   Smooth / Animated / Recruiter-focused*
+
+*   =========================================================== */
 
 (() => {
   "use strict";
@@ -10,9 +13,11 @@
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
-  /* ===========================================================
-     Footer year
-     =========================================================== */
+  /* ===========================================================*
+
+*     Footer year*
+
+*     =========================================================== */
 
   const year = document.getElementById("year");
 
@@ -20,11 +25,14 @@
     year.textContent = new Date().getFullYear();
   }
 
-  /* ===========================================================
-     Mobile navigation
-     =========================================================== */
+  /* ===========================================================*
+
+*     Mobile navigation*
+
+*     =========================================================== */
 
   const navToggle = document.getElementById("navToggle");
+
   const navLinks = document.getElementById("navLinks");
 
   if (navToggle && navLinks) {
@@ -32,13 +40,16 @@
       const isOpen = navLinks.classList.toggle("is-open");
 
       navToggle.classList.toggle("is-open", isOpen);
+
       navToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
     navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("is-open");
+
         navToggle.classList.remove("is-open");
+
         navToggle.setAttribute("aria-expanded", "false");
       });
     });
@@ -51,17 +62,22 @@
         !navToggle.contains(event.target)
       ) {
         navLinks.classList.remove("is-open");
+
         navToggle.classList.remove("is-open");
+
         navToggle.setAttribute("aria-expanded", "false");
       }
     });
   }
 
-  /* ===========================================================
-     Navigation scroll state + scroll progress
-     =========================================================== */
+  /* ===========================================================*
+
+*     Navigation scroll state + scroll progress*
+
+*     =========================================================== */
 
   const nav = document.getElementById("nav");
+
   const progress = document.getElementById("scrollProgress");
 
   let ticking = false;
@@ -69,17 +85,24 @@
   function updateScrollUI() {
     const scrollY = window.scrollY || window.pageYOffset;
 
-    /*
-      Add stronger background/shadow to navbar
-      once the user starts scrolling.
-    */
+    /**
+
+*       Add stronger background/shadow to navbar*
+
+*       once the user starts scrolling.*
+
+*     */
+
     if (nav) {
       nav.classList.toggle("scrolled", scrollY > 20);
     }
 
-    /*
-      Calculate page scroll percentage.
-    */
+    /**
+
+*       Calculate page scroll percentage.*
+
+*     */
+
     if (progress) {
       const documentElement = document.documentElement;
 
@@ -95,20 +118,25 @@
 
   window.addEventListener(
     "scroll",
+
     () => {
       if (!ticking) {
         requestAnimationFrame(updateScrollUI);
+
         ticking = true;
       }
     },
+
     { passive: true },
   );
 
   updateScrollUI();
 
-  /* ===========================================================
-     Scroll reveal animations
-     =========================================================== */
+  /* ===========================================================*
+
+*     Scroll reveal animations*
+
+*     =========================================================== */
 
   const revealElements = document.querySelectorAll(".reveal");
 
@@ -127,16 +155,21 @@
           observer.unobserve(entry.target);
         });
       },
+
       {
         threshold: 0.12,
+
         rootMargin: "0px 0px -60px 0px",
       },
     );
 
     revealElements.forEach((element, index) => {
-      /*
-        Small stagger between elements.
-      */
+      /**
+
+*       Small stagger between elements.*
+
+*     */
+
       element.style.setProperty("--delay", `${Math.min(index % 5, 4) * 65}ms`);
 
       revealObserver.observe(element);
@@ -147,18 +180,22 @@
     });
   }
 
-  /* ===========================================================
-     Active navigation based on visible section
-     =========================================================== */
+  /* ===========================================================*
+
+*     Active navigation based on visible section*
+
+*     =========================================================== */
 
   const navAnchors = [...document.querySelectorAll(".nav-links a")];
 
   const trackedSections = navAnchors
+
     .map((link) => {
       const target = link.getAttribute("href");
 
       return target ? document.querySelector(target) : null;
     })
+
     .filter(Boolean);
 
   if ("IntersectionObserver" in window && trackedSections.length) {
@@ -175,8 +212,10 @@
           });
         });
       },
+
       {
         rootMargin: "-35% 0px -55% 0px",
+
         threshold: 0,
       },
     );
@@ -186,9 +225,11 @@
     });
   }
 
-  /* ===========================================================
-     Project filters
-     =========================================================== */
+  /* ===========================================================*
+
+*     Project filters*
+
+*     =========================================================== */
 
   const filterButtons = document.querySelectorAll(".filter-btn");
 
@@ -198,9 +239,12 @@
     button.addEventListener("click", () => {
       const filter = button.dataset.filter;
 
-      /*
-        Update active filter button.
-      */
+      /**
+
+*       Update active filter button.*
+
+*     */
+
       filterButtons.forEach((btn) => {
         const active = btn === button;
 
@@ -209,34 +253,47 @@
         btn.setAttribute("aria-selected", String(active));
       });
 
-      /*
-        Show/hide matching projects.
-      */
+      /**
+
+*       Show/hide matching projects.*
+
+*     */
+
       projectCards.forEach((card, index) => {
         const shouldShow = filter === "all" || card.dataset.cat === filter;
 
         if (shouldShow) {
           card.classList.remove("is-hidden");
 
-          /*
-            Animate cards when filter changes.
-          */
+          /**
+
+*           Animate cards when filter changes.*
+
+*         */
+
           if (!reducedMotion) {
             card.animate(
               [
                 {
                   opacity: 0,
+
                   transform: "translateY(18px) scale(.98)",
                 },
+
                 {
                   opacity: 1,
+
                   transform: "translateY(0) scale(1)",
                 },
               ],
+
               {
                 duration: 430,
+
                 delay: index * 35,
+
                 easing: "cubic-bezier(.22,1,.36,1)",
+
                 fill: "both",
               },
             );
@@ -248,9 +305,11 @@
     });
   });
 
-  /* ===========================================================
-     Mouse-follow ambient glow
-     =========================================================== */
+  /* ===========================================================*
+
+*     Mouse-follow ambient glow*
+
+*     =========================================================== */
 
   const cursorGlow = document.querySelector(".cursor-glow");
 
@@ -260,22 +319,28 @@
     window.matchMedia("(pointer:fine)").matches
   ) {
     let mouseX = window.innerWidth / 2;
+
     let mouseY = window.innerHeight / 2;
 
     let glowX = mouseX;
+
     let glowY = mouseY;
 
     window.addEventListener(
       "pointermove",
+
       (event) => {
         mouseX = event.clientX;
+
         mouseY = event.clientY;
       },
+
       { passive: true },
     );
 
     function animateGlow() {
       glowX += (mouseX - glowX) * 0.09;
+
       glowY += (mouseY - glowY) * 0.09;
 
       cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
@@ -286,9 +351,11 @@
     animateGlow();
   }
 
-  /* ===========================================================
-     Subtle 3D hero card tilt
-     =========================================================== */
+  /* ===========================================================*
+
+*     Subtle 3D hero card tilt*
+
+*     =========================================================== */
 
   const heroVisual = document.querySelector(".hero-visual");
 
@@ -312,9 +379,11 @@
     });
   }
 
-  /* ===========================================================
-     Magnetic buttons
-     =========================================================== */
+  /* ===========================================================*
+
+*     Magnetic buttons*
+
+*     =========================================================== */
 
   if (!reducedMotion && window.matchMedia("(pointer:fine)").matches) {
     document.querySelectorAll(".magnetic").forEach((button) => {
@@ -334,9 +403,11 @@
     });
   }
 
-  /* ===========================================================
-     Animated AI / ML signal canvas
-     =========================================================== */
+  /* ===========================================================*
+
+*     Animated AI / ML signal canvas*
+
+*     =========================================================== */
 
   function initSignalCanvas() {
     const canvas = document.getElementById("signalCanvas");
@@ -348,7 +419,9 @@
     if (!ctx) return;
 
     let width = 0;
+
     let height = 0;
+
     let dpr = 1;
 
     let points = [];
@@ -357,20 +430,27 @@
 
     const POINT_COUNT = 64;
 
-    /* ---------------------------------------------------------
-       Canvas resize
-       --------------------------------------------------------- */
+    /* ---------------------------------------------------------*
+
+*       Canvas resize*
+
+*       --------------------------------------------------------- */
 
     function resize() {
       const rect = canvas.getBoundingClientRect();
 
-      /*
-        Limit DPR to 2 for better performance
-        on high-resolution screens.
-      */
+      /**
+
+*       Limit DPR to 2 for better performance*
+
+*       on high-resolution screens.*
+
+*     */
+
       dpr = Math.min(window.devicePixelRatio || 1, 2);
 
       width = rect.width;
+
       height = rect.height;
 
       canvas.width = Math.max(1, Math.floor(width * dpr));
@@ -380,9 +460,11 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    /* ---------------------------------------------------------
-       Generate model-performance curve
-       --------------------------------------------------------- */
+    /* ---------------------------------------------------------*
+
+*       Generate model-performance curve*
+
+*       --------------------------------------------------------- */
 
     function buildSeries(time = 0) {
       points = [];
@@ -390,21 +472,31 @@
       for (let i = 0; i < POINT_COUNT; i++) {
         const progress = i / (POINT_COUNT - 1);
 
-        /*
-          Decaying curve resembling
-          a model training/validation curve.
-        */
+        /**
+
+*         Decaying curve resembling*
+
+*         a model training/validation curve.*
+
+*       */
+
         const decay = Math.pow(1 - progress, 1.65);
 
-        /*
-          Small moving wave.
-        */
+        /**
+
+*         Small moving wave.*
+
+*       */
+
         const wave =
           Math.sin(progress * 18 + time * 0.0007) * 0.018 * (1 - progress);
 
-        /*
-          Deterministic noise.
-        */
+        /**
+
+*         Deterministic noise.*
+
+*       */
+
         const noise = Math.sin(i * 4.17) * 0.012 * decay;
 
         const value = 0.075 + decay * 0.77 + wave + noise;
@@ -413,56 +505,71 @@
       }
     }
 
-    /* ---------------------------------------------------------
-       Grid
-       --------------------------------------------------------- */
+    /* ---------------------------------------------------------*
+
+*       Grid*
+
+*       --------------------------------------------------------- */
 
     function drawGrid() {
       ctx.strokeStyle = "rgba(232,234,237,.055)";
 
       ctx.lineWidth = 1;
 
-      /*
-        Horizontal grid.
-      */
+      /**
+
+*       Horizontal grid.*
+
+*     */
+
       for (let row = 0; row <= 4; row++) {
         const y = (height / 4) * row + 0.5;
 
         ctx.beginPath();
 
         ctx.moveTo(0, y);
+
         ctx.lineTo(width, y);
 
         ctx.stroke();
       }
 
-      /*
-        Vertical grid.
-      */
+      /**
+
+*       Vertical grid.*
+
+*     */
+
       for (let col = 0; col <= 6; col++) {
         const x = (width / 6) * col + 0.5;
 
         ctx.beginPath();
 
         ctx.moveTo(x, 0);
+
         ctx.lineTo(x, height);
 
         ctx.stroke();
       }
     }
 
-    /* ---------------------------------------------------------
-       Draw signal
-       --------------------------------------------------------- */
+    /* ---------------------------------------------------------*
+
+*       Draw signal*
+
+*       --------------------------------------------------------- */
 
     function drawSeries(time) {
       if (!points.length) return;
 
       const step = width / (POINT_COUNT - 1);
 
-      /*
-        Draw line.
-      */
+      /**
+
+*       Draw line.*
+
+*     */
+
       ctx.beginPath();
 
       points.forEach((value, index) => {
@@ -477,9 +584,12 @@
         }
       });
 
-      /*
-        Gradient from amber to teal.
-      */
+      /**
+
+*       Gradient from amber to teal.*
+
+*     */
+
       const gradient = ctx.createLinearGradient(0, 0, width, 0);
 
       gradient.addColorStop(0, "#f0b429");
@@ -493,13 +603,17 @@
       ctx.lineWidth = 2;
 
       ctx.lineJoin = "round";
+
       ctx.lineCap = "round";
 
       ctx.stroke();
 
-      /*
-        Fill below curve.
-      */
+      /**
+
+*       Fill below curve.*
+
+*     */
+
       const fill = ctx.createLinearGradient(0, 0, 0, height);
 
       fill.addColorStop(0, "rgba(240,180,41,.14)");
@@ -516,9 +630,12 @@
 
       ctx.fill();
 
-      /*
-        Animated leading point.
-      */
+      /**
+
+*       Animated leading point.*
+
+*     */
+
       const last = points[POINT_COUNT - 1];
 
       const x = width;
@@ -527,9 +644,12 @@
 
       const pulse = 3 + Math.sin(time * 0.005) * 1.1;
 
-      /*
-        Outer glow.
-        */
+      /**
+
+*       Outer glow.*
+
+*       */
+
       ctx.beginPath();
 
       ctx.arc(x, y, pulse + 4, 0, Math.PI * 2);
@@ -538,9 +658,12 @@
 
       ctx.fill();
 
-      /*
-        Main point.
-        */
+      /**
+
+*       Main point.*
+
+*       */
+
       ctx.beginPath();
 
       ctx.arc(x, y, pulse, 0, Math.PI * 2);
@@ -550,9 +673,11 @@
       ctx.fill();
     }
 
-    /* ---------------------------------------------------------
-       Render animation
-       --------------------------------------------------------- */
+    /* ---------------------------------------------------------*
+
+*       Render animation*
+
+*       --------------------------------------------------------- */
 
     function render(time) {
       ctx.clearRect(0, 0, width, height);
@@ -568,18 +693,25 @@
       }
     }
 
-    /*
-      Initial setup.
-    */
+    /**
+
+*     Initial setup.*
+
+*   */
+
     resize();
 
     render(performance.now());
 
-    /*
-      Responsive canvas.
-    */
+    /**
+
+*     Responsive canvas.*
+
+*   */
+
     window.addEventListener(
       "resize",
+
       () => {
         resize();
 
@@ -587,12 +719,16 @@
           render(performance.now());
         }
       },
+
       { passive: true },
     );
 
-    /*
-      Stop animation when page is hidden.
-    */
+    /**
+
+*     Stop animation when page is hidden.*
+
+*   */
+
     document.addEventListener("visibilitychange", () => {
       if (document.hidden && animationFrame) {
         cancelAnimationFrame(animationFrame);
@@ -606,14 +742,19 @@
 
   initSignalCanvas();
 
-  /* ===========================================================
-     Keyboard accessibility
-     =========================================================== */
+  /* ===========================================================*
+
+*     Keyboard accessibility*
+
+*     =========================================================== */
 
   document.addEventListener("keydown", (event) => {
-    /*
-        Escape closes mobile navigation.
-      */
+    /**
+
+*       Escape closes mobile navigation.*
+
+*     */
+
     if (event.key === "Escape" && navLinks && navToggle) {
       navLinks.classList.remove("is-open");
 
